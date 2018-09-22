@@ -41,4 +41,5 @@ class ChillDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
 
     db.run(q)
   }
+  
 }
