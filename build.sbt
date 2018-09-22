@@ -1,6 +1,6 @@
-name := """play-scala-starter-example"""
+name := """chillbot-srv"""
 
-version := "1.0-SNAPSHOT"
+version := "1"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
