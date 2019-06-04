@@ -25,7 +25,8 @@ import net.codingwell.scalaguice.ScalaModule
 import play.api.Configuration
 import play.api.libs.ws.WSClient
 import net.ceedubs.ficus.readers.EnumerationReader._
-import myUtils.auth.{CustomSecuredErrorHandler, CustomUnsecuredErrorHandler, DefaultEnv}
+import myUtils.auth.{CustomSecuredErrorHandler, CustomUnsecuredErrorHandler}
+import utils.auth.DefaultEnv
 
 import scala.concurrent.ExecutionContext.Implicits.global
 
@@ -37,7 +38,7 @@ class SilhouetteModule extends AbstractModule with ScalaModule {
   /**
    * Configures the module.
    */
-  override def configure() {
+  def configure() {
     bind[Silhouette[DefaultEnv]].to[SilhouetteProvider[DefaultEnv]]
     bind[UnsecuredErrorHandler].to[CustomUnsecuredErrorHandler]
     bind[SecuredErrorHandler].to[CustomSecuredErrorHandler]
