@@ -11,6 +11,8 @@ scalaVersion := "2.12.6"
 crossScalaVersions := Seq("2.12.6")
 
 libraryDependencies += guice
+libraryDependencies += cacheApi
+libraryDependencies += ehcache
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
 libraryDependencies += "mysql" % "mysql-connector-java" % "6.0.6"
 libraryDependencies ++= Seq(
