@@ -9,7 +9,6 @@ resolvers += "Atlassian Releases" at "https://maven.atlassian.com/public/"
 resolvers += Resolver.jcenterRepo
 
 scalaVersion := "2.12.6"
-
 crossScalaVersions := Seq("2.12.6")
 
 libraryDependencies += guice
