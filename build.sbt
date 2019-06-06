@@ -5,6 +5,8 @@ version := "1"
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
 resolvers += Resolver.sonatypeRepo("snapshots")
+resolvers += "Atlassian Releases" at "https://maven.atlassian.com/public/"
+resolvers += Resolver.jcenterRepo
 
 scalaVersion := "2.12.6"
 
