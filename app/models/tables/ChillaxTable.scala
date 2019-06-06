@@ -3,11 +3,18 @@ package models.tables
 import com.github.tototoshi.slick.MySQLJodaSupport._
 import models.DAOSlick
 import org.joda.time.DateTime
+import play.api.libs.json.{Json, OWrites}
 import slick.lifted.MappedTo
 
 case class ChillaxId(value: Long) extends AnyVal with MappedTo[Long]
 
 case class ChillaxTableDBRow(id: ChillaxId, slackRef: String, created: DateTime = DateTime.now(), updated: DateTime = DateTime.now(), chillScoreId: ChillScoreId)
+
+case class ChillaxData(slackRef: String, score: ChillScoreData)
+
+object ChillaxData {
+  implicit val writer: OWrites[ChillaxData] = Json.writes[ChillaxData]
+}
 
 trait ChillaxTable extends DAOSlick {
 

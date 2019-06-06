@@ -41,4 +41,14 @@ class ChillDAO @Inject()(protected val dbConfigProvider: DatabaseConfigProvider)
 
     db.run(q)
   }
+
+  def getChills: Future[Seq[ChillaxData]] = {
+    val q = chillaxTable
+      .join(chillScoreTable)
+      .on(_.chillScoreId === _.id)
+      .map(x => (x._1.slackRef, (x._2.positive, x._2.negative) <> ((ChillScoreData.apply _).tupled, ChillScoreData.unapply)) <> ((ChillaxData.apply _).tupled, ChillaxData.unapply))
+      .result
+
+    db.run(q)
+  }
 }

@@ -36,4 +36,8 @@ class ChillController @Inject()(
   }
 
   def chillBro: Action[AnyContent] = Action.async(implicit r => Future.successful(Ok("Chill bro!")))
+
+  def chillax: Action[AnyContent] = silhouette.SecuredAction(WithRole[DefaultEnv#A](Role.God())).async { implicit r =>
+    chillDAO.getChills.map(x => Ok(Json.toJson(x)))
+  }
 }
