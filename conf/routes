@@ -19,3 +19,5 @@ POST    /sign-in                                                     controllers
 GET     /api/:slackRef/get-chill                                     controllers.ChillController.getChill(slackRef: String)
 POST    /api/:slackRef/:positive/:negative/add-chill                 controllers.ChillController.addChill(slackRef: String, positive: Long, negative: Long)
 GET     /api/chillax                                                 controllers.ChillController.chillax
+
+GET     /test/ceate-admin                                            controllers.TestController.create_admin
