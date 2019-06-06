@@ -23,12 +23,6 @@ class ChillController @Inject()(
     }
   }
 
-  def addChillax(slackRef: String): Action[AnyContent] = silhouette.SecuredAction(WithRole[DefaultEnv#A](Role.God())).async { implicit r =>
-    chillDAO.addChillax(slackRef).map { _ =>
-      NoContent
-    }
-  }
-
   def addChill(slackRef: String, positive: Long, negative: Long): Action[AnyContent] = silhouette.SecuredAction(WithRole[DefaultEnv#A](Role.God())).async { implicit r =>
     chillDAO.addChill(slackRef, positive, negative).map { _ =>
       NoContent

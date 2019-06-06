@@ -18,5 +18,4 @@ POST    /sign-in                                                     controllers
 # Chill API
 GET     /api/:slackRef/get-chill                                     controllers.ChillController.getChill(slackRef: String)
 POST    /api/:slackRef/:positive/:negative/add-chill                 controllers.ChillController.addChill(slackRef: String, positive: Long, negative: Long)
-POST    /api/:slackRef/add-chillax                                   controllers.ChillController.addChillax(slackRef: String)
 GET     /api/chillax                                                 controllers.ChillController.chillax
